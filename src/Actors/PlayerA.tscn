@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Actors/PlayerA.gd" type="Script" id=1]
+[ext_resource path="res://assets/Images/PersonajeA.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "espalda",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "lado",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "frente",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 29.4024
+height = 125.728
+
+[node name="PlayerA" type="Area2D"]
+position = Vector2( 510.889, 264.125 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+Velocidad = 400
+
+[node name="Sprite_playerA" type="AnimatedSprite" parent="."]
+position = Vector2( -4.54958, -3.56676 )
+scale = Vector2( 0.0408296, 0.0617799 )
+frames = SubResource( 2 )
+animation = "frente"
+playing = true
+
+[node name="Collision_playerA" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -3.05176e-005 )
+shape = SubResource( 1 )
